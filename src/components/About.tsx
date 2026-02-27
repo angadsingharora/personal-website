@@ -12,13 +12,13 @@ const values = [
 
 export function About() {
   return (
-    <section id="about" className="py-28 border-t border-neutral-800/30">
+    <section id="about" className="py-28 border-t border-neutral-200 dark:border-neutral-800/30">
       <div className="max-w-5xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           <div className="lg:col-span-4 flex flex-col items-center lg:items-start gap-6">
             <FadeIn>
               <div className="relative">
-                <div className="w-44 h-44 rounded-2xl overflow-hidden ring-1 ring-neutral-800">
+                <div className="w-44 h-44 rounded-2xl overflow-hidden ring-1 ring-neutral-200 dark:ring-neutral-800">
                   <Image
                     src="/headshot.png"
                     alt="Angad Singh Arora"
@@ -28,19 +28,19 @@ export function About() {
                     priority
                   />
                 </div>
-                <div className="absolute -bottom-2 -right-2 px-2 py-1 bg-neutral-950 border border-neutral-800 rounded-md">
-                  <span className="text-[10px] font-mono text-accent">UW &apos;27</span>
+                <div className="absolute -bottom-2 -right-2 px-2 py-1 bg-white dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-md">
+                  <span className="text-[10px] font-mono text-accent">UW &apos;29</span>
                 </div>
               </div>
             </FadeIn>
 
             <FadeIn delay={0.1}>
               <div className="text-center lg:text-left">
-                <p className="font-medium text-white text-sm">University of Washington</p>
-                <p className="text-xs text-neutral-500 mt-1">
+                <p className="font-medium text-neutral-900 dark:text-white text-sm">University of Washington</p>
+                <p className="text-xs text-neutral-500 dark:text-neutral-500 mt-1">
                   B.S. Computer Science
                 </p>
-                <p className="text-xs text-neutral-500">
+                <p className="text-xs text-neutral-500 dark:text-neutral-500">
                   Minor in Entrepreneurship
                 </p>
               </div>
@@ -55,12 +55,12 @@ export function About() {
                   About
                 </p>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">
                 I build things instead of<br className="hidden sm:block" /> just studying them.
               </h2>
             </FadeIn>
 
-            <div className="mt-8 space-y-4 text-[15px] text-neutral-400 leading-relaxed">
+            <div className="mt-8 space-y-4 text-[15px] text-neutral-600 dark:text-neutral-400 leading-relaxed">
               <FadeIn delay={0.1}>
                 <p>
                   I&apos;m a CS student at UW who started a company before
@@ -81,13 +81,13 @@ export function About() {
             <div className="mt-10 grid sm:grid-cols-2 gap-4">
               {values.map((v, i) => (
                 <FadeIn key={v.num} delay={0.1 + i * 0.05}>
-                  <div className="flex gap-3 p-3 rounded-lg border border-neutral-800/30 hover:border-neutral-700/50 transition-colors">
+                  <div className="flex gap-3 p-3 rounded-lg border border-neutral-200 dark:border-neutral-800/30 hover:border-neutral-300 dark:hover:border-neutral-700/50 transition-colors">
                     <span className="text-[11px] font-mono text-accent/50 mt-0.5 shrink-0">
                       {v.num}
                     </span>
                     <div>
-                      <p className="text-sm font-medium text-neutral-200">{v.title}</p>
-                      <p className="text-xs text-neutral-600 mt-0.5">{v.desc}</p>
+                      <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">{v.title}</p>
+                      <p className="text-xs text-neutral-500 dark:text-neutral-600 mt-0.5">{v.desc}</p>
                     </div>
                   </div>
                 </FadeIn>

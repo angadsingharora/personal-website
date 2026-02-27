@@ -60,7 +60,7 @@ export function Hero() {
         animate="show"
       >
         <motion.div variants={item} className="mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/5 border border-accent/10 rounded-md font-mono text-xs text-accent">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/5 border border-accent/15 dark:border-accent/10 rounded-md font-mono text-xs text-accent">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
             <TypewriterText text="open to opportunities" delay={0.8} />
           </div>
@@ -68,21 +68,21 @@ export function Hero() {
 
         <motion.h1
           variants={item}
-          className="text-5xl sm:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.05]"
+          className="text-5xl sm:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.05]"
         >
           Angad Singh Arora
         </motion.h1>
 
         <motion.div variants={item} className="mt-5 flex items-center gap-3">
           <div className="h-px w-8 bg-accent" />
-          <p className="text-base sm:text-lg text-neutral-400 font-light">
+          <p className="text-base sm:text-lg text-neutral-500 dark:text-neutral-400 font-light">
             CS @ University of Washington
           </p>
         </motion.div>
 
         <motion.p
           variants={item}
-          className="mt-6 text-[15px] text-neutral-500 max-w-lg leading-relaxed"
+          className="mt-6 text-[15px] text-neutral-500 dark:text-neutral-500 max-w-lg leading-relaxed"
         >
           I build products at the intersection of AI, startups, and systems.
           Ship fast, learn deep, make things people actually use.
@@ -94,26 +94,16 @@ export function Hero() {
         >
           <a
             href="#projects"
-            className="group px-6 py-2.5 bg-accent text-neutral-950 text-sm font-semibold rounded-md hover:bg-accent-light transition-colors inline-flex items-center gap-2"
+            className="group px-6 py-2.5 bg-accent text-white text-sm font-semibold rounded-md hover:bg-accent-dark transition-colors inline-flex items-center gap-2"
           >
             View Projects
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="group-hover:translate-x-0.5 transition-transform"
-            >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-0.5 transition-transform">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
           <a
             href="#contact"
-            className="px-6 py-2.5 text-neutral-400 text-sm font-medium rounded-md border border-neutral-800 hover:border-neutral-600 hover:text-white transition-all"
+            className="px-6 py-2.5 text-neutral-500 dark:text-neutral-400 text-sm font-medium rounded-md border border-neutral-300 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600 hover:text-neutral-900 dark:hover:text-white transition-all"
           >
             Get in Touch
           </a>
@@ -127,7 +117,7 @@ export function Hero() {
             href="https://github.com/angadsingharora"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-700 hover:text-accent transition-colors duration-200"
+            className="text-neutral-400 dark:text-neutral-700 hover:text-accent transition-colors duration-200"
             aria-label="GitHub"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -138,7 +128,7 @@ export function Hero() {
             href="https://www.linkedin.com/in/angadsingharora1"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-neutral-700 hover:text-accent transition-colors duration-200"
+            className="text-neutral-400 dark:text-neutral-700 hover:text-accent transition-colors duration-200"
             aria-label="LinkedIn"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -147,7 +137,7 @@ export function Hero() {
           </a>
           <a
             href="mailto:angadsingharora@gmail.com"
-            className="text-neutral-700 hover:text-accent transition-colors duration-200"
+            className="text-neutral-400 dark:text-neutral-700 hover:text-accent transition-colors duration-200"
             aria-label="Email"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

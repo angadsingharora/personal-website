@@ -10,10 +10,11 @@
   }
 
   body {
-    @apply bg-neutral-950 text-neutral-100;
+    @apply bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100;
+    @apply transition-colors duration-200;
   }
 
   ::selection {
-    @apply bg-accent/20 text-accent-light;
+    @apply bg-accent/20 text-accent-dark dark:text-accent-light;
   }
 }
