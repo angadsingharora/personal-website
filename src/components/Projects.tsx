@@ -4,6 +4,7 @@ import { FadeIn } from "./FadeIn";
 
 interface Project {
   name: string;
+  tag: string;
   description: string;
   highlights: string[];
   stack: string[];
@@ -14,6 +15,7 @@ interface Project {
 const projects: Project[] = [
   {
     name: "MicroMarkets v2",
+    tag: "Startup",
     description: "Social prediction markets for everyday decisions.",
     highlights: [
       "Real-time market engine with dynamic odds",
@@ -21,105 +23,114 @@ const projects: Project[] = [
       "Built for 1,000+ concurrent users",
     ],
     stack: ["React Native", "TypeScript", "Supabase", "FastAPI"],
-    github: "#",
+    github: "https://github.com/angadsingharora",
   },
   {
     name: "AI Glasses Assistant",
-    description:
-      "Real-time AI wearable prototype for context-aware assistance.",
+    tag: "AI / Hardware",
+    description: "Real-time AI wearable prototype for context-aware assistance.",
     highlights: [
       "On-device vision model for scene understanding",
       "Sub-200ms response latency",
       "Voice-first interaction design",
     ],
-    stack: ["Python", "OpenCV", "Whisper", "GPT-4 Vision"],
-    github: "#",
+    stack: ["Python", "OpenCV", "Whisper", "GPT-4V"],
+    github: "https://github.com/angadsingharora",
   },
   {
-    name: "Aluminum-Ion Battery Research",
-    description: "Computational modeling of next-gen battery architectures.",
+    name: "Battery Research",
+    tag: "Research",
+    description: "Computational modeling of aluminum-ion battery architectures.",
     highlights: [
       "Molecular dynamics simulations for ion transport",
       "Published research on electrode optimization",
-      "Collaboration with UW Materials Science lab",
+      "UW Materials Science collaboration",
     ],
-    stack: ["Python", "MATLAB", "DFT Simulations"],
+    stack: ["Python", "MATLAB", "DFT"],
   },
   {
     name: "GrandFLOW",
+    tag: "Healthcare",
     description: "AI-driven senior care coordination platform.",
     highlights: [
-      "Automated care scheduling with ML optimization",
+      "Multi-agent system for care automation",
       "Family dashboard with real-time health insights",
-      "Integrated medication tracking system",
+      "Medication tracking and alerting",
     ],
     stack: ["Next.js", "TypeScript", "Supabase", "OpenAI"],
-    link: "#",
+    github: "https://github.com/angadsingharora/GrandFLOW",
   },
 ];
 
 export function Projects() {
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="py-28">
       <div className="max-w-5xl mx-auto px-6">
         <FadeIn>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Projects
+          <div className="flex items-center gap-2 mb-4">
+            <div className="h-px w-6 bg-accent" />
+            <p className="text-[11px] font-mono uppercase tracking-widest text-accent">
+              Projects
+            </p>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+            Things I&apos;ve built.
           </h2>
-          <div className="mt-2 w-12 h-1 bg-accent rounded-full" />
         </FadeIn>
 
-        <div className="mt-12 grid md:grid-cols-2 gap-6">
+        <div className="mt-12 grid md:grid-cols-2 gap-4">
           {projects.map((project, i) => (
-            <FadeIn key={project.name} delay={i * 0.1}>
-              <div className="group h-full border border-neutral-200 dark:border-neutral-800 rounded-xl p-6 hover:border-accent/40 dark:hover:border-accent/40 transition-all duration-300 hover:-translate-y-1">
-                <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
-                  {project.name}
-                </h3>
-                <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
+            <FadeIn key={project.name} delay={i * 0.08}>
+              <div className="group h-full rounded-xl border border-neutral-800/40 p-6 hover:border-accent/20 transition-all duration-300 bg-neutral-900/20">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-2.5">
+                    <h3 className="text-[15px] font-semibold text-white group-hover:text-accent transition-colors">
+                      {project.name}
+                    </h3>
+                    <span className="px-1.5 py-0.5 text-[9px] font-mono uppercase tracking-wider text-accent/60 border border-accent/10 rounded">
+                      {project.tag}
+                    </span>
+                  </div>
+                  {(project.github || project.link) && (
+                    <a
+                      href={project.github || project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="shrink-0 mt-0.5 text-neutral-700 hover:text-accent transition-colors"
+                      aria-label={`View ${project.name}`}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M7 17L17 7M17 7H7M17 7v10" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
+
+                <p className="mt-2 text-[13px] text-neutral-500">
                   {project.description}
                 </p>
 
-                <ul className="mt-4 space-y-2">
+                <ul className="mt-3.5 space-y-1.5">
                   {project.highlights.map((h) => (
                     <li
                       key={h}
-                      className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400"
+                      className="flex items-start gap-2 text-[13px] text-neutral-400"
                     >
-                      <span className="mt-1.5 w-1 h-1 rounded-full bg-neutral-400 dark:bg-neutral-600 shrink-0" />
+                      <span className="mt-[7px] w-1 h-1 rounded-full bg-accent/30 shrink-0" />
                       {h}
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-6 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-1.5">
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2.5 py-1 text-xs font-medium bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 rounded-md"
+                      className="px-2 py-0.5 text-[10px] font-mono bg-neutral-800/50 text-neutral-500 rounded"
                     >
                       {tech}
                     </span>
                   ))}
-                </div>
-
-                <div className="mt-4 flex gap-3">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      className="text-sm text-accent hover:text-accent-dark dark:hover:text-accent-light transition-colors"
-                    >
-                      GitHub
-                    </a>
-                  )}
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      className="text-sm text-accent hover:text-accent-dark dark:hover:text-accent-light transition-colors"
-                    >
-                      Live Demo
-                    </a>
-                  )}
                 </div>
               </div>
             </FadeIn>

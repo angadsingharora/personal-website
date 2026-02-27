@@ -2,55 +2,45 @@
 
 import { FadeIn } from "./FadeIn";
 
-interface SkillCategory {
-  title: string;
-  items: string[];
-}
-
-const categories: SkillCategory[] = [
-  {
-    title: "Languages",
-    items: ["TypeScript", "Java", "Python", "SQL"],
-  },
-  {
-    title: "Frameworks",
-    items: ["React / React Native", "Next.js", "FastAPI"],
-  },
-  {
-    title: "Tools",
-    items: ["Supabase", "Git", "Vercel", "Docker"],
-  },
-];
+const skills = {
+  Languages: ["TypeScript", "Java", "Python", "SQL"],
+  Frameworks: ["React / React Native", "Next.js", "FastAPI"],
+  Tools: ["Supabase", "Git", "Vercel", "Docker"],
+};
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24">
+    <section id="skills" className="py-28 border-t border-neutral-800/30">
       <div className="max-w-5xl mx-auto px-6">
         <FadeIn>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Skills
+          <div className="flex items-center gap-2 mb-4">
+            <div className="h-px w-6 bg-accent" />
+            <p className="text-[11px] font-mono uppercase tracking-widest text-accent">
+              Skills
+            </p>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+            My toolkit.
           </h2>
-          <div className="mt-2 w-12 h-1 bg-accent rounded-full" />
         </FadeIn>
 
-        <div className="mt-12 grid sm:grid-cols-3 gap-10">
-          {categories.map((cat, i) => (
-            <FadeIn key={cat.title} delay={i * 0.1}>
+        <div className="mt-12 space-y-8">
+          {Object.entries(skills).map(([category, items], ci) => (
+            <FadeIn key={category} delay={ci * 0.1}>
               <div>
-                <h3 className="text-xs font-semibold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-4">
-                  {cat.title}
+                <h3 className="text-[10px] font-mono uppercase tracking-widest text-neutral-600 mb-3">
+                  {category}
                 </h3>
-                <ul className="space-y-2.5">
-                  {cat.items.map((item) => (
-                    <li
-                      key={item}
-                      className="text-sm text-neutral-700 dark:text-neutral-300 flex items-center gap-2.5"
+                <div className="flex flex-wrap gap-2">
+                  {items.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-4 py-2 text-sm text-neutral-400 border border-neutral-800/50 rounded-lg hover:border-accent/20 hover:text-neutral-200 transition-all duration-200 cursor-default"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                      {item}
-                    </li>
+                      {skill}
+                    </span>
                   ))}
-                </ul>
+                </div>
               </div>
             </FadeIn>
           ))}

@@ -6,18 +6,18 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "class",
   theme: {
     extend: {
       colors: {
         accent: {
-          DEFAULT: "#2563eb",
-          light: "#3b82f6",
-          dark: "#1d4ed8",
+          DEFAULT: "#10b981",
+          light: "#34d399",
+          dark: "#059669",
         },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
     },
   },

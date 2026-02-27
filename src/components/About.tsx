@@ -1,90 +1,99 @@
 "use client";
 
+import Image from "next/image";
 import { FadeIn } from "./FadeIn";
+
+const values = [
+  { num: "01", title: "Build real products", desc: "Not assignments — things people use." },
+  { num: "02", title: "Technical depth", desc: "Understand the stack top to bottom." },
+  { num: "03", title: "Startup velocity", desc: "Move fast, stay scrappy, ship relentlessly." },
+  { num: "04", title: "Learn by doing", desc: "Every project is a bet on growth." },
+];
 
 export function About() {
   return (
-    <section id="about" className="py-24">
+    <section id="about" className="py-28 border-t border-neutral-800/30">
       <div className="max-w-5xl mx-auto px-6">
-        <FadeIn>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            About
-          </h2>
-          <div className="mt-2 w-12 h-1 bg-accent rounded-full" />
-        </FadeIn>
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="lg:col-span-4 flex flex-col items-center lg:items-start gap-6">
+            <FadeIn>
+              <div className="relative">
+                <div className="w-44 h-44 rounded-2xl overflow-hidden ring-1 ring-neutral-800">
+                  <Image
+                    src="/headshot.png"
+                    alt="Angad Singh Arora"
+                    width={176}
+                    height={176}
+                    className="object-cover w-full h-full"
+                    priority
+                  />
+                </div>
+                <div className="absolute -bottom-2 -right-2 px-2 py-1 bg-neutral-950 border border-neutral-800 rounded-md">
+                  <span className="text-[10px] font-mono text-accent">UW &apos;27</span>
+                </div>
+              </div>
+            </FadeIn>
 
-        <div className="mt-12 max-w-2xl space-y-6 text-neutral-600 dark:text-neutral-400 leading-relaxed">
-          <FadeIn delay={0.1}>
-            <p>
-              I&apos;m a Computer Science student at the University of
-              Washington who builds products instead of just studying them. I
-              started my first company before I finished my freshman year, and
-              I&apos;ve been shipping ever since.
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.2}>
-            <p>
-              My work sits at the intersection of systems engineering, machine
-              learning, and product design. I care about technical depth&mdash;I
-              want to understand the stack top to bottom&mdash;but I care even
-              more about building things people actually use.
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.3}>
-            <p>
-              I believe the best way to learn is to ship. Every project I take on
-              is a bet on an idea, a chance to push my skills, and a step toward
-              building something that matters. I move fast, stay scrappy, and
-              treat every problem like a product waiting to be built.
-            </p>
-          </FadeIn>
-        </div>
-
-        <div className="mt-16 grid sm:grid-cols-2 gap-8">
-          <FadeIn delay={0.2}>
-            <div>
-              <h3 className="text-xs font-semibold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-4">
-                What I Care About
-              </h3>
-              <ul className="space-y-2.5">
-                {[
-                  "Building real products",
-                  "Technical depth over breadth",
-                  "Startup velocity",
-                  "Shipping fast and iterating",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 text-sm text-neutral-700 dark:text-neutral-300"
-                  >
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.3}>
-            <div>
-              <h3 className="text-xs font-semibold uppercase tracking-widest text-neutral-400 dark:text-neutral-500 mb-4">
-                Education
-              </h3>
-              <div>
-                <p className="font-medium text-neutral-900 dark:text-neutral-100">
-                  University of Washington
-                </p>
-                <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+            <FadeIn delay={0.1}>
+              <div className="text-center lg:text-left">
+                <p className="font-medium text-white text-sm">University of Washington</p>
+                <p className="text-xs text-neutral-500 mt-1">
                   B.S. Computer Science
                 </p>
-                <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                  Minor: Entrepreneurship
+                <p className="text-xs text-neutral-500">
+                  Minor in Entrepreneurship
                 </p>
               </div>
+            </FadeIn>
+          </div>
+
+          <div className="lg:col-span-8">
+            <FadeIn>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="h-px w-6 bg-accent" />
+                <p className="text-[11px] font-mono uppercase tracking-widest text-accent">
+                  About
+                </p>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                I build things instead of<br className="hidden sm:block" /> just studying them.
+              </h2>
+            </FadeIn>
+
+            <div className="mt-8 space-y-4 text-[15px] text-neutral-400 leading-relaxed">
+              <FadeIn delay={0.1}>
+                <p>
+                  I&apos;m a CS student at UW who started a company before
+                  finishing freshman year. My work sits at the intersection of
+                  systems engineering, machine learning, and product
+                  design&mdash;and I&apos;ve been shipping ever since.
+                </p>
+              </FadeIn>
+              <FadeIn delay={0.15}>
+                <p>
+                  I care about technical depth, but I care more about impact.
+                  I want to understand how things work at every layer, then use
+                  that knowledge to build products that matter.
+                </p>
+              </FadeIn>
             </div>
-          </FadeIn>
+
+            <div className="mt-10 grid sm:grid-cols-2 gap-4">
+              {values.map((v, i) => (
+                <FadeIn key={v.num} delay={0.1 + i * 0.05}>
+                  <div className="flex gap-3 p-3 rounded-lg border border-neutral-800/30 hover:border-neutral-700/50 transition-colors">
+                    <span className="text-[11px] font-mono text-accent/50 mt-0.5 shrink-0">
+                      {v.num}
+                    </span>
+                    <div>
+                      <p className="text-sm font-medium text-neutral-200">{v.title}</p>
+                      <p className="text-xs text-neutral-600 mt-0.5">{v.desc}</p>
+                    </div>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
