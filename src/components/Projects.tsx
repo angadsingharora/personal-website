@@ -66,6 +66,20 @@ const projects: Project[] = [
     stack: ["Mobile", "GPS", "Analytics"],
   },
   {
+    name: "MicroMarkets",
+    tag: "In Progress",
+    context: "Solo Project — 2025 – Present",
+    description: "Mobile-first platform for crowd-powered micro-decisions using market mechanics.",
+    highlights: [
+      "Users create short-lived binary markets around everyday choices and decisions",
+      "Dynamic pricing via automated market maker reflects real-time crowd probability",
+      "Credit-based trading system with instant payouts on market resolution",
+      "Realtime price updates and portfolio tracking across all active markets",
+    ],
+    stack: ["React Native", "Expo", "TypeScript", "Supabase", "PostgreSQL"],
+    github: "https://github.com/angadsingharora",
+  },
+  {
     name: "Battery Research",
     tag: "Published",
     context: "Computational Energy Systems Lab, Duke — Feb – Sep 2024",
@@ -93,7 +107,7 @@ export function Projects() {
             </p>
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 dark:text-white">
-            Things I&apos;ve built.
+            Experience &amp; Projects
           </h2>
         </FadeIn>
 
