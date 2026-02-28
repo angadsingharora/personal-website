@@ -3,10 +3,10 @@
 import { FadeIn } from "./FadeIn";
 
 const skills: Record<string, string[]> = {
-  Languages: ["Python", "JavaScript", "HTML", "CSS", "Dart", "Java", "SQL", "C++", "TypeScript"],
-  "Tools & Frameworks": ["React", "Svelte", "Firebase", "Flask", "InfluxDB", "Grafana", "Git/GitHub", "Excel", "Google Sheets"],
-  "Systems & Databases": ["Firebase", "SQLite", "InfluxDB", "REST APIs", "OR-Tools", "Data Visualization"],
-  Interests: ["Weightlifting", "Road Biking", "Seattle Seahawks", "Rap Concerts", "Spider-Man Movies", "Vinyl Records"],
+  Languages: ["Python", "Java", "JavaScript", "TypeScript", "SQL", "C++", "HTML/CSS"],
+  "Tools & Frameworks": ["React", "Next.js", "Firebase", "Supabase", "Flask", "FastAPI", "Git/GitHub", "VASP", "MATLAB"],
+  "Technical Focus": ["AI/ML Integration", "Computational Modeling", "Computer Vision", "Full-Stack Development", "Data Analytics"],
+  Interests: ["Basketball", "Cooking", "Improv Comedy", "Investing", "Exploring Seattle's food scene"],
 };
 
 export function Skills() {
@@ -25,7 +25,7 @@ export function Skills() {
           </h2>
           <p className="mt-3 text-sm text-neutral-500 max-w-lg leading-relaxed">
             A comprehensive overview of my technical skills and areas of expertise,
-            spanning full-stack development, mobile apps, and data systems.
+            spanning full-stack development, AI/ML, and computational modeling.
           </p>
         </FadeIn>
 

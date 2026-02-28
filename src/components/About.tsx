@@ -43,6 +43,9 @@ export function About() {
                 <p className="text-xs text-neutral-500 dark:text-neutral-500">
                   Minor in Entrepreneurship
                 </p>
+                <p className="text-xs text-neutral-500 dark:text-neutral-500 mt-0.5">
+                  Graduation: June 2029
+                </p>
               </div>
             </FadeIn>
           </div>
@@ -63,17 +66,22 @@ export function About() {
             <div className="mt-8 space-y-4 text-[15px] text-neutral-600 dark:text-neutral-400 leading-relaxed">
               <FadeIn delay={0.1}>
                 <p>
-                  I&apos;m a CS student at UW who started a company before
-                  finishing freshman year. My work sits at the intersection of
-                  systems engineering, machine learning, and product
-                  design&mdash;and I&apos;ve been shipping ever since.
+                  I&apos;m a Computer Science student at the University of
+                  Washington who likes understanding how systems work and how
+                  they can be improved. I tend to approach problems with an
+                  entrepreneurial mindset&mdash;when something feels inefficient
+                  or broken, I start thinking about how it could be redesigned
+                  or optimized into a better solution.
                 </p>
               </FadeIn>
               <FadeIn delay={0.15}>
                 <p>
-                  I care about technical depth, but I care more about impact.
-                  I want to understand how things work at every layer, then use
-                  that knowledge to build products that matter.
+                  Most of my learning comes from building and experimenting. I
+                  enjoy working across different parts of technology, from
+                  writing code and designing systems to thinking about how
+                  products should actually feel to use. Long term, I want to
+                  build technology that creates impactful solutions and improves
+                  the systems people rely on.
                 </p>
               </FadeIn>
             </div>

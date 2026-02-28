@@ -5,6 +5,7 @@ import { FadeIn } from "./FadeIn";
 interface Project {
   name: string;
   tag: string;
+  context: string;
   description: string;
   highlights: string[];
   stack: string[];
@@ -14,51 +15,69 @@ interface Project {
 
 const projects: Project[] = [
   {
-    name: "MicroMarkets v2",
-    tag: "Startup",
-    description: "Social prediction markets for everyday decisions.",
+    name: "GrandFLOW",
+    tag: "Hackathon",
+    context: "UC Berkeley Hackathon — Nov 2025",
+    description: "Multi-agent automation platform for senior care.",
     highlights: [
-      "Real-time market engine with dynamic odds",
-      "Social feed with friend-based market discovery",
-      "Built for 1,000+ concurrent users",
+      "Processed 85,000+ data points from wearables, diet logs, and medication reports",
+      "Backend pipelines in FastAPI + Supabase with 8–10 req/s throughput",
+      "LLM reasoning agents trained on 3,000+ patient-state examples for anomaly detection",
+      "Presented to YC-affiliated VCs and startup mentors",
     ],
-    stack: ["React Native", "TypeScript", "Supabase", "FastAPI"],
+    stack: ["FastAPI", "Supabase", "OpenAI", "Python"],
+    github: "https://github.com/angadsingharora/GrandFLOW",
+  },
+  {
+    name: "CueBOT",
+    tag: "Hackathon",
+    context: "UW Hackathon — Oct 2025",
+    description: "Computer vision pipeline for Twitch streamers.",
+    highlights: [
+      "Automated camera framing, gesture-based scene switching, and real-time highlight clipping",
+      "OpenCV + MediaPipe + OBS WebSocket with sub-100ms event detection",
+      "NLP-driven chat analytics using Transformer embeddings with 92% precision",
+    ],
+    stack: ["Python", "OpenCV", "MediaPipe", "NLP"],
     github: "https://github.com/angadsingharora",
   },
   {
-    name: "AI Glasses Assistant",
-    tag: "AI / Hardware",
-    description: "Real-time AI wearable prototype for context-aware assistance.",
+    name: "Gurbanity",
+    tag: "Startup",
+    context: "Founder & Lead Dev — Jan 2022 – Jun 2025",
+    description: "AI-powered platform reconnecting Punjabi youth with language and heritage.",
     highlights: [
-      "On-device vision model for scene understanding",
-      "Sub-200ms response latency",
-      "Voice-first interaction design",
+      "Scaled to 1,200+ active users with personalized adaptive learning modules",
+      "Built transliteration engine that boosted translation accuracy by 68%",
+      "Analytics dashboard optimizing content recommendations across sessions",
     ],
-    stack: ["Python", "OpenCV", "Whisper", "GPT-4V"],
-    github: "https://github.com/angadsingharora",
+    stack: ["Next.js", "Supabase", "OpenAI"],
+  },
+  {
+    name: "Safely Campaign",
+    tag: "Civic Tech",
+    context: "Congressional App Foundation — Mar – Jul 2024",
+    description: "Geofencing app for political campaign sign monitoring.",
+    highlights: [
+      "AirTag + GPS telemetry monitoring sign placement within 50-foot radius",
+      "Visibility algorithm increased average sign impressions by 67%",
+      "Detected sign theft instances; presented to WA State Senator Manka Dhingra",
+    ],
+    stack: ["Mobile", "GPS", "Analytics"],
   },
   {
     name: "Battery Research",
-    tag: "Research",
-    description: "Computational modeling of aluminum-ion battery architectures.",
+    tag: "Published",
+    context: "Computational Energy Systems Lab, Duke — Feb – Sep 2024",
+    description: "Published research on aluminum-ion battery architectures with Duke post-grads.",
     highlights: [
-      "Molecular dynamics simulations for ion transport",
-      "Published research on electrode optimization",
-      "UW Materials Science collaboration",
+      "DFT + Molecular Dynamics modeling of ion diffusion and electrochemical stability",
+      "Model outperformed lithium-ion benchmarks in predicted voltage and energy density",
+      "Automated simulation workflows in Python + VASP, reducing compute time by 40%",
+      "Co-authored published paper with Duke University post-graduate researchers",
     ],
-    stack: ["Python", "MATLAB", "DFT"],
-  },
-  {
-    name: "GrandFLOW",
-    tag: "Healthcare",
-    description: "AI-driven senior care coordination platform.",
-    highlights: [
-      "Multi-agent system for care automation",
-      "Family dashboard with real-time health insights",
-      "Medication tracking and alerting",
-    ],
-    stack: ["Next.js", "TypeScript", "Supabase", "OpenAI"],
-    github: "https://github.com/angadsingharora/GrandFLOW",
+    stack: ["Python", "VASP", "MATLAB", "DFT"],
+    link: "https://chemrxiv.org/doi/pdf/10.26434/chemrxiv-2024-wnt0j",
   },
 ];
 
@@ -83,17 +102,22 @@ export function Projects() {
             <FadeIn key={project.name} delay={i * 0.08}>
               <div className="group h-full rounded-xl border border-neutral-200 dark:border-neutral-800/40 p-6 hover:border-accent/30 dark:hover:border-accent/20 transition-all duration-300 bg-neutral-50/50 dark:bg-neutral-900/20">
                 <div className="flex items-start justify-between gap-3">
-                  <div className="flex items-center gap-2.5">
-                    <h3 className="text-[15px] font-semibold text-neutral-900 dark:text-white group-hover:text-accent transition-colors">
-                      {project.name}
-                    </h3>
-                    <span className="px-1.5 py-0.5 text-[9px] font-mono uppercase tracking-wider text-accent/60 border border-accent/15 dark:border-accent/10 rounded">
-                      {project.tag}
-                    </span>
+                  <div>
+                    <div className="flex items-center gap-2.5">
+                      <h3 className="text-[15px] font-semibold text-neutral-900 dark:text-white group-hover:text-accent transition-colors">
+                        {project.name}
+                      </h3>
+                      <span className="px-1.5 py-0.5 text-[9px] font-mono uppercase tracking-wider text-accent/60 border border-accent/15 dark:border-accent/10 rounded">
+                        {project.tag}
+                      </span>
+                    </div>
+                    <p className="text-[11px] font-mono text-neutral-400 dark:text-neutral-600 mt-1">
+                      {project.context}
+                    </p>
                   </div>
                   {(project.github || project.link) && (
                     <a
-                      href={project.github || project.link}
+                      href={project.link || project.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="shrink-0 mt-0.5 text-neutral-400 dark:text-neutral-700 hover:text-accent transition-colors"
