@@ -16,7 +16,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Angad Singh Arora — CS @ UW | Builder & Founder",
+  title: "Angad Singh Arora",
   description:
     "Computer Science student at the University of Washington. Building products at the intersection of AI, startups, and systems.",
   keywords: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Angad Singh Arora" }],
   openGraph: {
-    title: "Angad Singh Arora — CS @ UW | Builder & Founder",
+    title: "Angad Singh Arora",
     description:
       "Building products at the intersection of AI, startups, and systems.",
     type: "website",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Angad Singh Arora — CS @ UW | Builder & Founder",
+    title: "Angad Singh Arora",
     description:
       "Building products at the intersection of AI, startups, and systems.",
   },

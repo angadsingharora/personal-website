@@ -9,6 +9,16 @@ const skills: Record<string, string[]> = {
   Interests: ["Basketball", "Cooking", "Improv Comedy", "Investing", "Exploring Seattle's food scene"],
 };
 
+const coursework = [
+  "Data Structures & Algorithms",
+  "Computer Programming II",
+  "Software Design & Implementation",
+  "Linear Algebra",
+  "Multivariable Calculus",
+  "Statistics & Probability",
+  "Entrepreneurship & Innovation",
+];
+
 export function Skills() {
   return (
     <section id="skills" className="py-28 border-t border-neutral-200 dark:border-neutral-800/30">
@@ -50,6 +60,24 @@ export function Skills() {
             </FadeIn>
           ))}
         </div>
+
+        <FadeIn delay={0.35}>
+          <div className="mt-4 p-5 rounded-xl border border-neutral-200 dark:border-neutral-800/40 bg-neutral-50/50 dark:bg-neutral-900/20">
+            <h3 className="text-sm font-semibold text-neutral-900 dark:text-white mb-4">
+              Relevant Coursework
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {coursework.map((course) => (
+                <span
+                  key={course}
+                  className="px-3 py-1.5 text-xs text-neutral-600 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-800/50 rounded-md hover:border-accent/30 dark:hover:border-accent/20 hover:text-neutral-900 dark:hover:text-neutral-200 transition-all duration-200 cursor-default"
+                >
+                  {course}
+                </span>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
