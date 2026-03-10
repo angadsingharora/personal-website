@@ -30,23 +30,3 @@ html {
   }
 }
 
-/*
- * AsciiRenderer (drei) generates a div > table structure where both the
- * outer div and the table have inline pixel dimensions that can fall
- * a few px short of the container on high-DPI Windows displays.
- * Force both the wrapper div and the table to fill their positioned parent.
- */
-table[style*="position"] {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  table-layout: fixed !important;
-}
-
-/* AsciiEffect outer div — also needs to be stretched */
-div[style*="position: absolute"][style*="top: 0px"][style*="left: 0px"]:has(table) {
-  width: 100% !important;
-  height: 100% !important;
-  inset: 0 !important;
-}
