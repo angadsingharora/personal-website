@@ -30,3 +30,17 @@ html {
   }
 }
 
+/*
+ * AsciiRenderer generates a <table> with inline pixel dimensions computed
+ * from the canvas resolution.  On high-DPI Windows displays the pixel
+ * width can be a few px short of the container, leaving a visible gap.
+ * Force the table to stretch to fill its positioned parent regardless
+ * of its intrinsic content width.
+ */
+table[style*="position"] {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  table-layout: fixed !important;
+}
