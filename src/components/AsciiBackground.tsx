@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense } from "react";
+import { useTheme } from "next-themes";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, AsciiRenderer, useGLTF, Environment } from "@react-three/drei";
 
@@ -19,6 +20,12 @@ function Computer() {
 }
 
 export function AsciiBackground() {
+  const { resolvedTheme } = useTheme();
+  const isLight = resolvedTheme === "light";
+
+  const fgColor = isLight ? "#ffffff" : "#2563eb";
+  const bgColor = isLight ? "#3b82f6" : "transparent";
+
   return (
     <div
       style={{
@@ -53,8 +60,8 @@ export function AsciiBackground() {
           <AsciiRenderer
             resolution={0.18}
             characters=" .:-=+*#%@"
-            fgColor="#2563eb"
-            bgColor="transparent"
+            fgColor={fgColor}
+            bgColor={bgColor}
             invert={false}
           />
         </Suspense>
