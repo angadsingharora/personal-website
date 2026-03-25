@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 
@@ -8,36 +7,6 @@ const AsciiBackground = dynamic(
   () => import("@/components/AsciiBackground").then((mod) => mod.AsciiBackground),
   { ssr: false }
 );
-
-function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
-  const [displayed, setDisplayed] = useState("");
-  const [started, setStarted] = useState(false);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => setStarted(true), delay * 1000);
-    return () => clearTimeout(timeout);
-  }, [delay]);
-
-  useEffect(() => {
-    if (!started) return;
-    let i = 0;
-    const interval = setInterval(() => {
-      setDisplayed(text.slice(0, i + 1));
-      i++;
-      if (i >= text.length) clearInterval(interval);
-    }, 40);
-    return () => clearInterval(interval);
-  }, [started, text]);
-
-  return (
-    <span>
-      {displayed}
-      {started && displayed.length < text.length && (
-        <span className="animate-pulse">|</span>
-      )}
-    </span>
-  );
-}
 
 export function Hero() {
   const container = {
@@ -67,13 +36,6 @@ export function Hero() {
         initial="hidden"
         animate="show"
       >
-        <motion.div variants={item} className="mb-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/90 dark:bg-accent/5 border border-accent/20 dark:border-accent/10 rounded-md font-mono text-xs text-accent-dark dark:text-accent">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-dark dark:bg-accent animate-pulse" />
-            <TypewriterText text="open to opportunities" delay={0.8} />
-          </div>
-        </motion.div>
-
         <motion.h1
           variants={item}
           className="text-5xl sm:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-neutral-900 dark:text-white leading-[1.05]"
