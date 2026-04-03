@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, AsciiRenderer, useGLTF, Environment } from "@react-three/drei";
@@ -22,6 +22,21 @@ function Computer() {
 export function AsciiBackground() {
   const { resolvedTheme } = useTheme();
   const isLight = resolvedTheme === "light";
+  const [rotateSpeed, setRotateSpeed] = useState(2);
+
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval>;
+    const firstTimeout = setTimeout(() => {
+      setRotateSpeed((prev) => prev * -1);
+      interval = setInterval(() => {
+        setRotateSpeed((prev) => prev * -1);
+      }, 10000);
+    }, 5000);
+    return () => {
+      clearTimeout(firstTimeout);
+      clearInterval(interval);
+    };
+  }, []);
 
   const fgColor = isLight ? "#ffffff" : "#2563eb";
   const bgColor = isLight ? "#3b82f6" : "transparent";
@@ -67,7 +82,7 @@ export function AsciiBackground() {
         </Suspense>
         <OrbitControls
           autoRotate
-          autoRotateSpeed={2}
+          autoRotateSpeed={rotateSpeed}
           enablePan={false}
           enableZoom={false}
           enableRotate={false}
