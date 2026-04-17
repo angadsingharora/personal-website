@@ -46,6 +46,16 @@ export function About() {
                 <p className="text-xs text-neutral-500 dark:text-neutral-500 mt-0.5">
                   Graduation: June 2029
                 </p>
+                <p className="mt-3">
+                  <a
+                    href="https://dosu.dev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-accent hover:underline underline-offset-2"
+                  >
+                    Incoming SWE Intern @ Dosu
+                  </a>
+                </p>
               </div>
             </FadeIn>
           </div>
