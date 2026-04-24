@@ -53,7 +53,7 @@ export function About() {
                     rel="noopener noreferrer"
                     className="text-xs text-accent hover:underline underline-offset-2"
                   >
-                    Incoming SWE Intern @ Dosu
+                    Incoming Software Engineering Intern @ Dosu
                   </a>
                 </p>
               </div>
