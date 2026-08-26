@@ -2,69 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
- * Critical resets placed OUTSIDE @layer so they have the highest
- * cascade priority and cannot be overridden by layered styles.
- */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
+/* --- Tokens -------------------------------------------------------------
+   Warm paper neutrals, one accent (a muted brick red). Both themes are
+   defined here so components never carry a dark: variant.                */
+:root {
+  --paper: 252 251 249;
+  --surface: 246 244 240;
+  --ink: 26 25 23;
+  --muted: 106 102 95;
+  --faint: 124 120 112;
+  --rule: 227 222 214;
+  --accent: 176 74 47;
+}
+
+.dark {
+  --paper: 15 15 14;
+  --surface: 24 23 21;
+  --ink: 235 232 226;
+  --muted: 154 149 140;
+  --faint: 124 119 111;
+  --rule: 43 41 38;
+  --accent: 226 121 94;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
 @layer base {
   body {
-    @apply bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100;
-    @apply transition-colors duration-200;
-    transition: filter 350ms cubic-bezier(0.2, 0.7, 0.2, 1), background 350ms cubic-bezier(0.2, 0.7, 0.2, 1);
+    @apply bg-paper text-ink font-sans;
+    font-feature-settings: "kern", "liga", "calt";
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Serif display face: optical sizing + a hair of negative tracking so
+     large settings don't look loose. */
+  h1, h2, h3 {
+    @apply font-serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.015em;
   }
 
   ::selection {
-    @apply bg-accent/20 text-accent-dark dark:text-accent-light;
+    background: rgb(var(--accent) / 0.16);
   }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Scroll-margin so anchor jumps clear the sticky header. */
+  [id] { scroll-margin-top: 5.5rem; }
 }
 
-/*
- * AsciiRenderer generates a <table> with inline pixel dimensions computed
- * from the canvas resolution.  On high-DPI Windows displays the pixel
- * width can be a few px short of the container, leaving a visible gap.
- * Force the table to stretch to fill its positioned parent regardless
- * of its intrinsic content width.
- */
-table[style*="position"] {
-  position: absolute !important;
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  table-layout: fixed !important;
+/* --- Reveal -------------------------------------------------------------
+   Cheap scroll-in used by Reveal.tsx. Opacity + 6px lift, 400ms, once.  */
+.reveal {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 400ms ease, transform 400ms cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-body::before {
+.reveal[data-shown="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce), (scripting: none) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* --- Easter egg ---------------------------------------------------------
+   Footer copyright toggles it. Kept from the old site, dialled way down:
+   a warm wash instead of a hue-rotated pink strobe.                      */
+body {
+  transition: filter 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+body::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
+  z-index: 60;
   opacity: 0;
-  z-index: 9999;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(255, 20, 147, 0.28), transparent 40%),
-    radial-gradient(circle at 85% 30%, rgba(255, 105, 180, 0.24), transparent 45%),
-    radial-gradient(circle at 50% 85%, rgba(255, 0, 128, 0.2), transparent 45%);
-  mix-blend-mode: screen;
-  transition: opacity 350ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  background: radial-gradient(120% 90% at 50% 0%, rgb(var(--accent) / 0.18), transparent 60%);
+  transition: opacity 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-body.easter-party-on {
-  filter: hue-rotate(-22deg) saturate(1.35) contrast(1.05);
+body.warm {
+  filter: sepia(0.22) saturate(1.15);
 }
 
-body.easter-party-on::before {
+body.warm::after {
   opacity: 1;
 }

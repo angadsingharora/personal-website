@@ -1,58 +1,53 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, Newsreader, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
-const inter = Inter({
+const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
+
+const serif = Newsreader({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-serif",
   display: "swap",
+  style: ["normal", "italic"],
+  // Next 14 has no metric overrides for Newsreader; skip the synthetic
+  // fallback and name a real serif instead.
+  adjustFontFallback: false,
+  fallback: ["Georgia", "Times New Roman", "serif"],
 });
 
-const mono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
+const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://angadsingharora.com"),
   title: "Angad Singh Arora",
   description:
-    "Computer Science student at the University of Washington. Building products at the intersection of AI, startups, and systems.",
-  keywords: [
-    "Angad Singh Arora",
-    "UW",
-    "Computer Science",
-    "Software Engineer",
-    "Startup",
-    "AI",
-    "Portfolio",
-  ],
+    "Computer science student at the University of Washington. I build things: a language platform, a battery simulation, a prediction market app.",
   authors: [{ name: "Angad Singh Arora" }],
   openGraph: {
     title: "Angad Singh Arora",
-    description:
-      "Building products at the intersection of AI, startups, and systems.",
+    description: "Computer science student at the University of Washington.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Angad Singh Arora",
-    description:
-      "Building products at the intersection of AI, startups, and systems.",
+    description: "Computer science student at the University of Washington.",
   },
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${mono.variable} font-sans`}>
+      <body className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:border focus:border-rule focus:bg-paper focus:px-3 focus:py-2 focus:text-[13px] focus:text-ink"
+        >
+          Skip to content
+        </a>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
