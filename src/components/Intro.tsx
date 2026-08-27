@@ -40,7 +40,7 @@ export function Intro() {
 
           <Reveal delay={140}>
             <p className="mt-8 font-mono text-[11.5px] uppercase tracking-[0.14em] text-faint">
-              Redmond, WA · UW CS &rsquo;29
+              San Francisco, CA · UW CS, Entrepreneur
             </p>
           </Reveal>
 

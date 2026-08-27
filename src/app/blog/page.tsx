@@ -13,7 +13,7 @@ export default function BlogPage() {
       <main id="main" className="mx-auto max-w-page px-6 py-24 sm:px-8 sm:py-32">
         <h1 className="text-[clamp(1.9rem,5vw,2.6rem)] leading-tight">Writing</h1>
         <p className="mt-5 max-w-prose text-[16.5px] leading-[1.7] text-muted">
-          Nothing here yet.
+          Coming soon.
         </p>
       </main>
       <Footer />
