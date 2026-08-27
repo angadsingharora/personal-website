@@ -13,27 +13,27 @@ export function Intro() {
       <div className="grid gap-12 lg:grid-cols-[1fr_auto] lg:items-start lg:gap-16">
         <div>
           <Reveal>
-            <h1 className="max-w-[15ch] text-[clamp(2.1rem,6vw,3.4rem)] font-normal leading-[1.08]">
-              I learn things by building them.
+            <h1 className="max-w-[13ch] text-[clamp(2.2rem,6.2vw,3.5rem)] font-normal leading-[1.07]">
+              Noticing is the easy part.
             </h1>
           </Reveal>
 
           <div className="mt-8 max-w-prose space-y-4 text-[16.5px] leading-[1.7] text-muted">
             <Reveal delay={60}>
               <p>
-                I&apos;m a computer science student at the University of Washington.
-                I&apos;m drawn to the gap between how something works and how it
-                obviously should work, and when that gap bothers me enough I end up
-                building the fix. Most of what I know came out of that reflex rather
-                than out of a syllabus.
+                Everyone sees the thing that&apos;s broken. What I&apos;ve never
+                managed to switch off is the step after. I start working out how hard
+                the fix would actually be, and then I&apos;m two weeks into building
+                it. That habit accounts for most of what I know and most of the time
+                I&apos;ve wasted.
               </p>
             </Reveal>
             <Reveal delay={100}>
               <p>
-                I&apos;d rather be wrong early than careful and late. I like people
-                who are unreasonable about small details, work that someone actually
-                has to use, and problems where I have no idea what I&apos;m doing for
-                the first two weeks.
+                I&apos;m a computer science student at the University of Washington.
+                I&apos;m better at the start of a problem than the end, the stretch
+                where nobody knows its shape yet and being wrong is still cheap. The
+                last ten percent takes a patience I&apos;ve had to learn on purpose.
               </p>
             </Reveal>
           </div>
