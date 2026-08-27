@@ -43,7 +43,7 @@ const roles: Role[] = [
   },
   {
     years: "2025 to 2029",
-    title: "B.S. Computer Science, minor in Entrepreneurship",
+    title: "B.S. Computer Science, second degree in Entrepreneurship",
     org: "University of Washington",
     note: "Data structures & algorithms, software design, linear algebra, statistics.",
   },
