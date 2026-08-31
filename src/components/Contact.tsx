@@ -25,7 +25,6 @@ export function Contact() {
           {[
             { label: "GitHub", href: "https://github.com/angadsingharora" },
             { label: "LinkedIn", href: "https://www.linkedin.com/in/angadsingharora1" },
-            { label: "Résumé", href: "/resume.pdf" },
           ].map((link) => (
             <li key={link.href}>
               <a

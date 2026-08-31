@@ -7,7 +7,6 @@ import { useTheme } from "next-themes";
 const links = [
   { label: "Work", href: "/#work" },
   { label: "Writing", href: "/blog" },
-  { label: "Résumé", href: "/resume.pdf" },
 ];
 
 function ThemeToggle() {
@@ -55,7 +54,6 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              target={link.href.endsWith(".pdf") ? "_blank" : undefined}
               className="text-[13px] text-muted underline-offset-4 transition-colors hover:text-ink hover:underline hover:decoration-accent/50"
             >
               {link.label}
