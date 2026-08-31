@@ -8,8 +8,6 @@ export const metadata = {
   description: "Essays on cricket by Angad Singh Arora, published on Medium.",
 };
 
-const MEDIUM = "https://medium.com/@angadsingharora";
-
 /* Static list: four posts, all from 2021, nothing new since. Fetch the RSS
    feed instead if this ever starts moving. */
 const posts = [
@@ -52,32 +50,9 @@ export default function BlogPage() {
     <>
       <Header />
       <main id="main">
-        <div className="mx-auto max-w-page px-6 pb-14 pt-20 sm:px-8 sm:pb-20 sm:pt-28 lg:grid lg:grid-cols-[8rem_1fr] lg:gap-14">
-          <p className="mb-8 font-mono text-[11px] uppercase tracking-[0.18em] text-faint lg:mb-0 lg:pt-3">
-            Writing
-          </p>
-
-          <div className="min-w-0">
-            <Reveal>
-              <h1 className="text-[clamp(1.9rem,5vw,2.6rem)] leading-tight">
-                Four essays on cricket
-              </h1>
-              <p className="mt-5 max-w-prose text-[16.5px] leading-[1.7] text-muted">
-                Written the summer I was fifteen, mostly to work out why a ball
-                moves the way it does. They live on{" "}
-                <a
-                  href={MEDIUM}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-ink underline decoration-accent/35 underline-offset-4 transition-colors hover:decoration-accent"
-                >
-                  Medium
-                </a>
-                .
-              </p>
-            </Reveal>
-
-            <div className="mt-12 divide-y divide-rule border-y border-rule">
+        <div className="mx-auto max-w-page px-6 py-16 sm:px-8 sm:py-24 lg:grid lg:grid-cols-[8rem_1fr] lg:gap-14">
+          <div className="min-w-0 lg:col-start-2">
+            <div className="divide-y divide-rule border-y border-rule">
               {posts.map((post, i) => (
                 <Reveal key={post.href} delay={i * 40}>
                   <a
