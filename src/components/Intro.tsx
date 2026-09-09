@@ -14,26 +14,21 @@ export function Intro() {
         <div>
           <Reveal>
             <h1 className="max-w-[13ch] text-[clamp(2.2rem,6.2vw,3.5rem)] font-normal leading-[1.07]">
-              Noticing is the easy part.
+              Hi, I&apos;m Angad.
             </h1>
           </Reveal>
 
           <div className="mt-8 max-w-prose space-y-4 text-[16.5px] leading-[1.7] text-muted">
             <Reveal delay={60}>
               <p>
-                Everyone sees the thing that&apos;s broken. What I&apos;ve never
-                managed to switch off is the step after. I start working out how hard
-                the fix would actually be, and then I&apos;m two weeks into building
-                it. That habit accounts for most of what I know and most of the time
-                I&apos;ve wasted.
+                A working archive of software, experiments, and occasionally
+                overbuilt ideas.
               </p>
             </Reveal>
             <Reveal delay={100}>
               <p>
-                I&apos;m a computer science student at the University of Washington.
-                I&apos;m better at the start of a problem than the end, the stretch
-                where nobody knows its shape yet and being wrong is still cheap. The
-                last ten percent takes a patience I&apos;ve had to learn on purpose.
+                I study computer science at the University of Washington, and build
+                across research, startups, and hackathons.
               </p>
             </Reveal>
           </div>

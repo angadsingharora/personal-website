@@ -5,10 +5,12 @@ import { Work } from "@/components/Work";
 import { Toolkit } from "@/components/Toolkit";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { LoadingScreen } from "@/components/LoadingScreen";
 
 export default function Home() {
   return (
     <>
+      <LoadingScreen />
       <Header />
       <main id="main">
         <Intro />

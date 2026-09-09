@@ -4,11 +4,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
-const links = [
-  { label: "Work", href: "/#work" },
-  { label: "Writing", href: "/blog" },
-];
-
 function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -49,16 +44,7 @@ export function Header() {
           Angad Singh Arora
         </Link>
 
-        <nav className="flex items-center gap-5 sm:gap-7" aria-label="Primary">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-[13px] text-muted underline-offset-4 transition-colors hover:text-ink hover:underline hover:decoration-accent/50"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="flex items-center" aria-label="Site controls">
           <ThemeToggle />
         </nav>
       </div>

@@ -107,3 +107,75 @@ body.warm {
 body.warm::after {
   opacity: 1;
 }
+
+/* --- Loading state ------------------------------------------------------
+   Uses the same paper, fine rules and mono labels as the rest of the site. */
+.site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  overflow: hidden;
+  background: rgb(var(--paper));
+  color: rgb(var(--ink));
+  transition: opacity 360ms ease, visibility 360ms step-end;
+}
+
+.site-loader--leaving {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.site-loader__top {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgb(var(--rule));
+  color: rgb(var(--faint));
+  font-family: var(--font-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-loader__content {
+  width: min(100%, 34rem);
+  margin-bottom: 12vh;
+}
+
+.site-loader__eyebrow,
+.site-loader__count {
+  margin: 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.site-loader__eyebrow { color: rgb(var(--faint)); }
+.site-loader__count { margin-top: 0.7rem; color: rgb(var(--ink)); }
+
+.site-loader__progress {
+  height: 1px;
+  margin-top: 0.85rem;
+  overflow: hidden;
+  background: rgb(var(--rule));
+}
+
+.site-loader__progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+  background: rgb(var(--accent));
+  transition: transform 100ms linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-loader,
+  .site-loader__progress span { transition: none; }
+}
