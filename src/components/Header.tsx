@@ -9,26 +9,22 @@ function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  const isDark = resolvedTheme === "dark";
+  const isDark = mounted && resolvedTheme === "dark";
 
   return (
     <button
       type="button"
+      role="switch"
+      aria-checked={isDark}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="-mr-1.5 flex h-8 w-8 items-center justify-center text-faint transition-colors hover:text-ink"
-      aria-label={mounted ? `Switch to ${isDark ? "light" : "dark"} theme` : "Switch theme"}
+      className="-mr-1 flex h-[22px] w-10 items-center rounded-full border border-rule bg-surface px-[3px] transition-colors hover:border-faint"
+      aria-label="Dark theme"
     >
-      {/* Fixed glyph until mounted so server and client markup agree. */}
-      {mounted && isDark ? (
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" aria-hidden>
-          <circle cx="12" cy="12" r="4.2" />
-          <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4" />
-        </svg>
-      ) : (
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-          <path d="M20.5 13.4A8.6 8.6 0 1 1 10.6 3.5a6.9 6.9 0 0 0 9.9 9.9z" />
-        </svg>
-      )}
+      <span
+        className={`h-[14px] w-[14px] rounded-full bg-ink transition-transform duration-200 ${
+          isDark ? "translate-x-[18px]" : "translate-x-0"
+        }`}
+      />
     </button>
   );
 }
