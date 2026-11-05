@@ -12,6 +12,18 @@ type Project = {
 
 const projects: Project[] = [
   {
+    name: "Vandal",
+    when: "Since Oct 2026 · Cal Hacks 13.0",
+    summary: "A security layer for AI agents that move a company's money.",
+    body:
+      "Built with Mohith Ram Narendra Babu. Vandal Strike clones a company's books into a deterministic twin and searches for event sequences that break financial invariants, like one where every step looks valid and the ledger balances, but $40,000 lands in an attacker's account. It traces the broken link in the authorization chain and synthesizes a control to close it. Vandal Guard enforces that control in the live path, checking each payment, bank change and refund before money moves. On the simulated demo company, the control held across 34,676 re-searched sequences at depth 3, with all 80 legitimate invoices still paid.",
+    stack: "Python, FastAPI, Next.js, Claude, Postgres",
+    links: [
+      { label: "Live demo", href: "https://frontend-dusky-eight-92.vercel.app" },
+      { label: "GitHub", href: "https://github.com/angadsingharora/vandal" },
+    ],
+  },
+  {
     name: "MicroMarkets",
     when: "Since 2025",
     summary: "A prediction market for the things people actually argue about.",
