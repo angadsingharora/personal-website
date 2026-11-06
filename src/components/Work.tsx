@@ -12,6 +12,18 @@ type Project = {
 
 const projects: Project[] = [
   {
+    name: "whereverwhenever",
+    when: "Nov 2026",
+    summary: "Your iPhone, wherever, whenever. Location spoofing that moves like a real person.",
+    body:
+      "Every location-changer app makes the same one call to Apple's developer channel and teleports the phone. The hard part, which none of them do, is a trajectory a human or a heuristic would believe. I built a motion engine for that: each leg is routed on OpenStreetMap roads, speed is capped by curvature and lateral g through bends, forward and backward passes enforce acceleration and braking limits, junctions turn red with a per-mode probability, each stop has a dwell, and the reported fix drifts a few metres on a 10 to 90 second timescale like real GPS. Everything derives from a seed, so an itinerary resumes mid-route after a reboot. The site talks to a one-command local bridge over USB, draws the speed profile before you press Go, and shows a simulated iPhone with what a friend's Find My would see. Claude turns 'gym for an hour, coffee, then home, by bike' into stops.",
+    stack: "Python, pymobiledevice3, MapLibre, OSRM, Claude",
+    links: [
+      { label: "Live", href: "https://whereverwhenever.vercel.app" },
+      { label: "GitHub", href: "https://github.com/angadsingharora/whereverwhenever" },
+    ],
+  },
+  {
     name: "Vandal",
     when: "Since Oct 2026 · Cal Hacks 13.0",
     summary: "A security layer for AI agents that move a company's money.",
