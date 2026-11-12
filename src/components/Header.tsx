@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { useTheme } from "next-themes";
 
 function ThemeToggle() {
@@ -29,12 +29,24 @@ function ThemeToggle() {
   );
 }
 
+/* On the home page the name glides back to the top instead of a
+   router navigation, which jumps there instantly. Elsewhere (e.g. /blog)
+   it stays a normal link home. Modified clicks still open new tabs. */
+function scrollHomeToTop(e: MouseEvent<HTMLAnchorElement>) {
+  if (window.location.pathname !== "/" || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+  e.preventDefault();
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+  if (window.location.hash) history.replaceState(null, "", "/");
+}
+
 export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-rule bg-paper">
       <div className="mx-auto flex h-14 max-w-page items-center justify-between gap-6 px-6 sm:px-8">
         <Link
           href="/"
+          onClick={scrollHomeToTop}
           className="font-serif text-[15px] tracking-tight text-ink transition-colors hover:text-accent"
         >
           Angad Singh Arora
