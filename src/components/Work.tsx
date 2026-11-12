@@ -1,18 +1,17 @@
+import { ProjectRail, type Project } from "./ProjectRail";
 import { Reveal } from "./Reveal";
 import { Section } from "./Section";
-
-type Project = {
-  name: string;
-  when: string;
-  summary: string;
-  body: string;
-  stack: string;
-  links?: { label: string; href: string }[];
-};
 
 const projects: Project[] = [
   {
     name: "whereverwhenever",
+    kind: "Web app",
+    preview: {
+      src: "/projects/whereverwhenever.webp",
+      width: 800,
+      height: 553,
+      alt: "whereverwhenever: a three-stop itinerary routed on real roads from Berkeley to Oakland, with the itinerary panel and a simulated iPhone",
+    },
     when: "Nov 2026",
     summary: "Your iPhone, wherever, whenever. Location spoofing that moves like a real person.",
     body:
@@ -25,6 +24,13 @@ const projects: Project[] = [
   },
   {
     name: "Vandal",
+    kind: "Security platform",
+    preview: {
+      src: "/projects/vandal-landing.webp",
+      width: 1320,
+      height: 825,
+      alt: "Vandal's landing page: \"Your books can balance while the money goes to the wrong person.\" with buttons to open the workspace or watch the demo",
+    },
     when: "Since Oct 2026 · Cal Hacks 13.0",
     summary: "A security layer for AI agents that move a company's money.",
     body:
@@ -37,6 +43,7 @@ const projects: Project[] = [
   },
   {
     name: "MicroMarkets",
+    kind: "Mobile app",
     when: "Since 2025",
     summary: "A prediction market for the things people actually argue about.",
     body:
@@ -46,6 +53,7 @@ const projects: Project[] = [
   },
   {
     name: "GrandFLOW",
+    kind: "Multi-agent platform",
     when: "Nov 2025 · Cal Hacks, UC Berkeley",
     summary: "Multi-agent automation for senior care.",
     body:
@@ -55,6 +63,7 @@ const projects: Project[] = [
   },
   {
     name: "CueBOT",
+    kind: "Streaming tool",
     when: "Oct 2025 · UW hackathon",
     summary: "Camera and scene automation for Twitch streamers.",
     body:
@@ -64,6 +73,7 @@ const projects: Project[] = [
   },
   {
     name: "Gurbanity",
+    kind: "Learning platform",
     when: "2022 to 2025",
     summary: "An AI-powered Punjabi learning platform.",
     body:
@@ -72,6 +82,7 @@ const projects: Project[] = [
   },
   {
     name: "Aluminum-ion battery modeling",
+    kind: "Research paper",
     when: "Feb to Sep 2024 · Duke University",
     summary: "Published research on aluminum-ion cell architectures.",
     body:
@@ -83,6 +94,7 @@ const projects: Project[] = [
   },
   {
     name: "Safely Campaign",
+    kind: "Geofencing app",
     when: "Mar to Jul 2024 · Congressional App Foundation",
     summary: "Geofencing for political campaign signs.",
     body:
@@ -94,41 +106,9 @@ const projects: Project[] = [
 export function Work() {
   return (
     <Section id="work" label="Selected work">
-      <div className="divide-y divide-rule border-y border-rule">
-        {projects.map((project, i) => (
-          <Reveal key={project.name} delay={i * 40} className="py-8 first:pt-0 sm:py-10">
-            <article className="group">
-              <p className="font-mono text-[11.5px] tracking-wide text-faint">{project.when}</p>
-
-              <h3 className="mt-2 text-[1.4rem] leading-snug text-ink">{project.name}</h3>
-
-              <p className="mt-1.5 max-w-prose text-[15.5px] leading-relaxed text-ink/85">
-                {project.summary}
-              </p>
-
-              <p className="mt-3 max-w-prose text-[15px] leading-[1.7] text-muted">{project.body}</p>
-
-              <div className="mt-4 flex flex-wrap items-baseline gap-x-5 gap-y-2">
-                <p className="font-mono text-[11.5px] text-faint">{project.stack}</p>
-                {project.links?.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[13.5px] text-muted underline decoration-rule underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-                  >
-                    {link.label}
-                    <span aria-hidden className="ml-1 inline-block transition-transform duration-200 group-hover:translate-x-px">
-                      ↗
-                    </span>
-                  </a>
-                ))}
-              </div>
-            </article>
-          </Reveal>
-        ))}
-      </div>
+      <Reveal>
+        <ProjectRail projects={projects} />
+      </Reveal>
     </Section>
   );
 }

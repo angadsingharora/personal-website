@@ -179,3 +179,53 @@ body.warm::after {
   .site-loader,
   .site-loader__progress span { transition: none; }
 }
+
+/* --- Project rail -------------------------------------------------------
+   Horizontal tiles in Work.tsx. Native scrollbar hidden (arrows + swipe
+   drive it); edges fade on wide screens only where more tiles remain.   */
+.project-rail {
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.project-rail::-webkit-scrollbar { display: none; }
+
+@media (min-width: 640px) {
+  .project-rail {
+    --fade-l: 0px;
+    --fade-r: 0px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent 100%);
+  }
+  .project-rail[data-start="false"] { --fade-l: 28px; }
+  .project-rail[data-end="false"] { --fade-r: 56px; }
+}
+
+/* Ruled-paper cover for projects without a live site to screenshot. */
+.project-cover {
+  background-color: rgb(var(--surface));
+  background-image:
+    linear-gradient(to right, rgb(var(--accent) / 0.35) 1px, transparent 1px),
+    repeating-linear-gradient(to bottom, transparent 0 21px, rgb(var(--rule)) 21px 22px);
+  background-size: 1px 100%, 100% 100%;
+  background-position: 2.25rem 0, 0 0;
+  background-repeat: no-repeat, repeat;
+  padding-left: 3rem;
+}
+
+.project-dialog::backdrop {
+  background: rgb(10 10 9 / 0.45);
+  backdrop-filter: blur(3px);
+}
+
+.project-dialog[open] {
+  animation: dialog-in 220ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-dialog[open] { animation: none; }
+}
