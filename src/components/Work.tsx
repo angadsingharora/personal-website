@@ -125,6 +125,12 @@ const projects: Project[] = [
   {
     name: "Safely Campaign",
     kind: "Geofencing app",
+    preview: {
+      src: "/projects/safely-campaign.webp",
+      width: 1320,
+      height: 825,
+      alt: "Illustration: a street map with campaign signs inside 50-foot geofences, a high-traffic intersection highlighted, and an alert that sign 14 has left its zone, possible theft",
+    },
     when: "Mar to Jul 2024 · Congressional App Foundation",
     summary: "Geofencing for political campaign signs.",
     body:
