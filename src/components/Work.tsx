@@ -44,6 +44,12 @@ const projects: Project[] = [
   {
     name: "MicroMarkets",
     kind: "Mobile app",
+    preview: {
+      src: "/projects/micromarkets.webp",
+      width: 1320,
+      height: 825,
+      alt: "Illustration: A prediction market on a phone: a live question about making a flight, priced at 64% yes, with a portfolio card and a resolved market paying out credits",
+    },
     when: "Since 2025",
     summary: "A prediction market for the things people actually argue about.",
     body:
@@ -54,6 +60,12 @@ const projects: Project[] = [
   {
     name: "GrandFLOW",
     kind: "Multi-agent platform",
+    preview: {
+      src: "/projects/grandflow.webp",
+      width: 1320,
+      height: 825,
+      alt: "Illustration: A resident speaking to the voice assistant beside heart rate, sleep, steps and hydration tiles, with an agent flagging slower walking pace for the care team",
+    },
     when: "Nov 2025 · Cal Hacks, UC Berkeley",
     summary: "Multi-agent automation for senior care.",
     body:
@@ -64,6 +76,12 @@ const projects: Project[] = [
   {
     name: "CueBOT",
     kind: "Streaming tool",
+    preview: {
+      src: "/projects/cuebot.webp",
+      width: 1320,
+      height: 825,
+      alt: "Illustration: A live stream with face tracking and a peace-sign gesture switching OBS scenes, a chat mood meter, and highlight clips on a timeline",
+    },
     when: "Oct 2025 · UW hackathon",
     summary: "Camera and scene automation for Twitch streamers.",
     body:
@@ -74,6 +92,12 @@ const projects: Project[] = [
   {
     name: "Gurbanity",
     kind: "Learning platform",
+    preview: {
+      src: "/projects/gurbanity.webp",
+      width: 1320,
+      height: 825,
+      alt: "Illustration: A Punjabi vocabulary lesson for the word paani (water) in Gurmukhi, with a pronunciation score, an alphabet card and the next lesson",
+    },
     when: "2022 to 2025",
     summary: "An AI-powered Punjabi learning platform.",
     body:
