@@ -103,6 +103,7 @@ const projects: Project[] = [
     body:
       "Three years of running it end to end. Language, music and heritage modules, adaptive lessons that used engagement data to pick each user's next vocabulary, scripture and pronunciation drills, and a transliteration engine that lifted translation accuracy 68%. It reached 1,200 users, and taught me most of what I know about shipping to people who aren't engineers.",
     stack: "Next.js, Supabase, OpenAI",
+    links: [{ label: "News feature", href: "https://www.youtube.com/watch?v=NWEuPWkfyzM" }],
   },
   {
     name: "Aluminum-ion battery modeling",
