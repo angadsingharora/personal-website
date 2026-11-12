@@ -107,6 +107,12 @@ const projects: Project[] = [
   {
     name: "Aluminum-ion battery modeling",
     kind: "Research paper",
+    preview: {
+      src: "/projects/aluminum-ion-battery.webp",
+      width: 1320,
+      height: 825,
+      alt: "Figure 1(b) from the paper: schematic of an aluminum-ion battery, with Al3+ ions moving from the aluminum metal anode through the electrolyte and separator to the cathode during discharge",
+    },
     when: "Feb to Sep 2024 · Duke University",
     summary: "Published research on aluminum-ion cell architectures.",
     body:
